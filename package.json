@@ -45,7 +45,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "aws s3 sync build/ s3://hotels-fe-dev/home/ --profile otravo --delete",
+    "predeploy:dev": "REACT_APP_STAGE=dev yarn build",
+    "deploy:dev": "aws s3 sync build/ s3://hotels-fe-dev/home/ --profile otravo --delete",
+    "predeploy:prod": "REACT_APP_STAGE=prod yarn build",
+    "deploy:prod": "aws s3 sync build/ s3://hotels-fe-prod/home/ --profile otravo --delete",
     "deployLB": "aws s3 sync build/ s3://otravo/home/ --profile my --delete --acl public-read",
     "deployCF": "aws s3 sync build/ s3://otravo-hotels-site/home/ --profile my --delete --acl public-read"
   },

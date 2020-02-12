@@ -38,9 +38,8 @@ export interface SearchNameSuggestionParameters {
 
 export const fetchSuggestionSearch = (queryParameters: SearchSuggestionParameters): ThunkResult<void> => async dispatch => {
     handleFetchSuggestionSearch(dispatch);
-
     try {
-        const response: AxiosResponse<Array<SuggestionEntry>> = await search.get('/hint', {
+        const response: AxiosResponse<Array<SuggestionEntry>> = await search.get('/suggestions', {
             params: queryParameters
         });
         handleSuggestionSearchSuccess(dispatch, response.data);
