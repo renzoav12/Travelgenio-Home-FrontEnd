@@ -41,9 +41,6 @@ const theme = createMuiTheme({
     MuiPaper: {
       root: {
         padding: 20,
-        marginTop: 20,
-        marginLeft: 20,
-        marginRight: 20,
         borderStyle: "solid",
         border: "1px",
         borderColor: "#C0C6D1"
