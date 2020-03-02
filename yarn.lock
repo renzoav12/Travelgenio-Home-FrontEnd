@@ -1094,7 +1094,7 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
-"@hotels/footer@^0.0.1":
+"@hotels/footer@0.0.1":
   version "0.0.1"
   resolved "https://nexus.travelgenio.com/repository/travelgenio-npm/@hotels/footer/-/footer-0.0.1.tgz#a2704574acf4e3c22887c17f1174b5430c10aa19"
   integrity sha512-t2R076hsUUxbVlHtmdYAEKe5lkzI96wVDseoDSTVGF/T9nlhlHx2sAMsh2e37knA2J4SjXvB7aM28XHRzkcTEA==
@@ -1134,7 +1134,7 @@
     redux-thunk "2.3.0"
     typescript "~3.7.2"
 
-"@hotels/header@^0.0.1":
+"@hotels/header@0.0.1":
   version "0.0.1"
   resolved "https://nexus.travelgenio.com/repository/travelgenio-npm/@hotels/header/-/header-0.0.1.tgz#26d79eb233a17c74415d9d4483ec381a22db3a38"
   integrity sha512-0aS5HEqQL5nI4dAG0DfQs327cfKj44YjxDGmyXV6xUzHU+Gdwui/vsewt0mIcgdkojsKWKYdeYWfzaIJJZEc6w==

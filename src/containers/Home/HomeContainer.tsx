@@ -4,11 +4,13 @@ import { RootState } from '../../store';
 import Home, { HomeProps } from '../../components/Home/Home';
 import { thunkSearchBoxChange } from '../../actions/searchBox/searchBox.action';
 import { fetchSuggestionSearch } from '../../actions/suggestion/suggestion.action';
+import { Container } from "@material-ui/core";
 import moment from 'moment';
 
 const HomeContainer: FunctionComponent<HomeProps> = props => {
   
-  return <Home
+  return <Container maxWidth="lg">
+        <Home
           initSearchBox = {
             {
               location: {
@@ -32,6 +34,7 @@ const HomeContainer: FunctionComponent<HomeProps> = props => {
           loading={props.loading}
           suggestions={props.suggestions}
           />
+      </Container>;
 }
 
 const mapStateToProps = (rootState: RootState) => {
