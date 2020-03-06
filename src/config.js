@@ -3,7 +3,7 @@ const dev = {
 };
 
 const prod = {
-    SUGGESTIONS_API: "https://hotels-autocomplete-suggestion.travelagency.tech"
+    SUGGESTIONS_API: "https://" + window.location.hostname + "/hotels/api/"
 };
 
 const config = process.env.REACT_APP_STAGE === 'prod'
