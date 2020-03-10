@@ -1,19 +1,20 @@
 import React, { FunctionComponent } from 'react';
 import { Grid } from '@material-ui/core';
 import SearchBox from '../SearchBox/SearchBox';
+import PaintingSquare from '../PaintingSquare/PaintingSquare';
 import { SearchBoxState } from '../SearchBox/SearchBox';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
 import { SuggestionHint, SuggestionEntry } from '../SearchBox/Autocomplete/Autocomplete';
+import { PromotionEntry } from '../PaintingSquare/PaintingSquare';
 
 export interface HomeProps {
     initSearchBox: SearchBoxState;
     onChange: (state: SearchBoxState) => void;
     onChangeSuggestionHint: (suggestionHint: SuggestionHint) => void;
-    
-    loading: boolean;
-    
+    loading: boolean;   
     suggestions: SuggestionEntry[];
+    promotions: PromotionEntry[];
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -37,6 +38,8 @@ const Home: FunctionComponent<HomeProps> = props => {
         onChangeSuggestionHint={props.onChangeSuggestionHint}
         horizontal = {true}
         suggestions = {props.suggestions}/>
+      <PaintingSquare 
+            loading ={true} promotions = {props.promotions} />      
     </Grid>
   </Grid>;
 }

@@ -33,6 +33,7 @@ const HomeContainer: FunctionComponent<HomeProps> = props => {
           onChangeSuggestionHint={props.onChangeSuggestionHint}
           loading={props.loading}
           suggestions={props.suggestions}
+          promotions= {props.promotions}
           />
       </Container>;
 }
