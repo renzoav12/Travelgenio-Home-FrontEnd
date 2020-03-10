@@ -1,11 +1,11 @@
 import React, { FunctionComponent } from 'react';
 import { Grid } from '@material-ui/core';
-import SearchBox from '../SearchBox/SearchBox';
-import PaintingSquare from '../PaintingSquare/PaintingSquare';
-import { SearchBoxState } from '../SearchBox/SearchBox';
+import SearchBox from '@hotels/search-box';
+import { SearchBoxState } from '@hotels/search-box';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
-import { SuggestionHint, SuggestionEntry } from '../SearchBox/Autocomplete/Autocomplete';
+import { SuggestionHint, SuggestionEntry } from '@hotels/search-box/dist/Autocomplete/Autocomplete';
+import PaintingSquare from '../PaintingSquare/PaintingSquare';
 import { PromotionEntry } from '../PaintingSquare/PaintingSquare';
 
 export interface HomeProps {
