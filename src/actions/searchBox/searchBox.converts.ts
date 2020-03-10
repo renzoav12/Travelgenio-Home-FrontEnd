@@ -1,5 +1,5 @@
 import { SearchParameters } from '../../model/search';
-import { SearchBoxState } from '../../components/SearchBox/SearchBox';
+import { SearchBoxState } from '@hotels/search-box';
 
 export const createSearchParameterRequest = (searchBoxtate: SearchBoxState): SearchParameters => {
     const {location, stay, occupancy} = searchBoxtate;

@@ -1,4 +1,4 @@
-import { SearchBoxState } from "../components/SearchBox/SearchBox";
+import { SearchBoxState } from "@hotels/search-box";
 
 export interface SearchHeaderParameters {
     readonly country: string

@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { Reducer } from 'redux';
 import { SearchSuggestionAction, SearchSuggestionsActionTypes } from '../actions/suggestion/suggestion.action';
-import { SuggestionEntry } from '../components/SearchBox/Autocomplete/Autocomplete';
+import { SuggestionEntry } from '@hotels/search-box/dist/Autocomplete/Autocomplete';
 
 export interface SearchSuggestion {
     suggestions: Array<SuggestionEntry>;
