@@ -33,7 +33,6 @@
     right: 0;
     height: 48px;
     display: flex;
-    position: static;
     background: none !important;
     align-items: center;
     font-family: Open Sans; 
@@ -56,6 +55,12 @@
 }
 
 .MuiGridListTileBar-titleWrap {
-        margin-left: 30px !important;
-        margin-bottom: 42px !important;
+    margin-left: 30px !important;
+    margin-bottom: 42px !important;
+}
+
+.spanEdition{
+    position: absolute;
+    top: 0px;
+    right: 5px;
 }

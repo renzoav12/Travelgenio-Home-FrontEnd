@@ -4,6 +4,7 @@ export interface DataItem {
     title: string;
     description: string;
     link: string;
+    litleImage: string;
   }
   
   declare const Data: DataItem[];

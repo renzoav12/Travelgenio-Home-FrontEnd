@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { GridList,GridListTileBar, GridListTile } from '@material-ui/core';
+import { GridList,GridListTileBar, GridListTile, Grid } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Data from './Data';
 import './PaintingSquare.scss';
@@ -28,6 +28,10 @@ const useStyles = makeStyles((theme: Theme) =>
     img:{
       width: "100%",
       borderRadius: 5
+    },
+    miniImage:{},
+    miniImg:{
+      float: "right"
     }
   }),
 );
@@ -38,12 +42,17 @@ const PaintingSquare: FunctionComponent<ImagesProps> = props => {
     const square= () => (Data.length > 0 ?          
             Data.map((promotion)=>
                 <GridListTile key={promotion.urlImage}  style={ {height: 'auto' }}>
-                  <Img className={classes.img} src={process.env.PUBLIC_URL + promotion.urlImage}/>                            
-                  <a href={promotion.link}><GridListTileBar 
+                  <Img className={classes.img} src={process.env.PUBLIC_URL + promotion.urlImage}/>
+                  <a href={promotion.link}>
+                    <GridListTileBar 
                         title = {promotion.title} 
                         subtitle = {promotion.description}
                         /></a>
+                      <Grid className={"spanEdition"} >
+                          <Img className={classes.miniImg} src={process.env.PUBLIC_URL + promotion.litleImage}/>
+                      </Grid>           
                 </GridListTile>
+               
           ) : null   
       )
     return <GridList cellHeight={180} className={classes.gridList} style={ {margin: '' }}>
