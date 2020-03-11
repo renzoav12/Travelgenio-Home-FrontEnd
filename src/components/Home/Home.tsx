@@ -5,15 +5,16 @@ import { SearchBoxState } from '@hotels/search-box';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
 import { SuggestionHint, SuggestionEntry } from '@hotels/search-box/dist/Autocomplete/Autocomplete';
+import PaintingSquare from '../PaintingSquare/PaintingSquare';
+import { PromotionEntry } from '../PaintingSquare/PaintingSquare';
 
 export interface HomeProps {
     initSearchBox: SearchBoxState;
     onChange: (state: SearchBoxState) => void;
     onChangeSuggestionHint: (suggestionHint: SuggestionHint) => void;
-    
-    loading: boolean;
-    
+    loading: boolean;   
     suggestions: SuggestionEntry[];
+    promotions: PromotionEntry[];
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -37,6 +38,8 @@ const Home: FunctionComponent<HomeProps> = props => {
         onChangeSuggestionHint={props.onChangeSuggestionHint}
         horizontal = {true}
         suggestions = {props.suggestions}/>
+      <PaintingSquare 
+            loading ={true} promotions = {props.promotions} />      
     </Grid>
   </Grid>;
 }
