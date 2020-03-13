@@ -1197,8 +1197,8 @@
 
 "@hotels/search-box@0.0.5":
   version "0.0.5"
-  resolved "https://nexus.travelgenio.com/repository/travelgenio-npm/@hotels/search-box/-/search-box-0.0.5.tgz#ba34e0f7f05ff6cdaeb433681515d8549d4503cd"
-  integrity sha512-Nn9iZPsh9y3UYvsI2wRYK0Pp8Xvz3CIig9BpWVIJ5JIcs2kTOYDTcoZySYqr9h3NGJ4okKxip51B+2Y3MkzxUw==
+  resolved "https://nexus.travelgenio.com/repository/travelgenio-npm/@hotels/search-box/-/search-box-0.0.5.tgz#39336fee41a1e707f7839062dcfbfc2569e1eb0a"
+  integrity sha512-G2KZ4JYLLIOBWIotiRmIHyxsWZGOOHSp5Aa5eUvx6D0j6gdBqsVdHsc6ap5PljBNPHCP6hl2uL378537JUhzNQ==
   dependencies:
     "@material-ui/core" "^4.9.5"
     "@material-ui/icons" "^4.9.1"

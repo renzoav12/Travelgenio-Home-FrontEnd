@@ -55,6 +55,7 @@ const theme = createMuiTheme({
 function App() {
   return (
     <MuiThemeProvider theme={theme}>
+      <CssBaseline />
       <Header initialData={headerInitialData} countries={countries} currencies={currencies} />
       <Root store={store} />
       <Footer initialData={footerInitialData} countries={countries} subscribeEmail={subscribeEmail}/>
