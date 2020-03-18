@@ -4,7 +4,7 @@ const Data = [
       litleImage: "/static/images/mini_image1.png",
       title: 'Desde 109.88 EUR por noche.',
       description: 'Palma de Mallorca',
-      link: 'https://' + window.location.hostname + '/hotels/search/METROPOLITAN_AREA/2829/2020-05-22/2020-05-24/2/es'
+      link: 'https://' + window.location.hostname + '/hotels/search/CITY/2829/2020-05-22/2020-05-24/2/es'
     },
     {
      urlImage: "/static/images/image2.png",
