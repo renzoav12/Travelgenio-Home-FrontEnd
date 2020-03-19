@@ -49,7 +49,7 @@
     "eject": "react-scripts eject",
     "predeploy:dev": "REACT_APP_STAGE=dev yarn build",
     "deploy:dev": "aws s3 sync build/ s3://hotels-fe-dev/home/ --profile otravo --delete",
-    "predeploy:prod": "REACT_APP_STAGE=prod yarn build",
+    "predeploy:prod": "git checkout master && git pull origin master && REACT_APP_STAGE=prod yarn build",
     "deploy:prod": "aws s3 sync build/ s3://hotels-fe-prod/home/ --profile otravo-prod --delete",
     "deployLB": "aws s3 sync build/ s3://otravo/home/ --profile my --delete --acl public-read",
     "deployCF": "aws s3 sync build/ s3://otravo-hotels-site/home/ --profile my --delete --acl public-read"
