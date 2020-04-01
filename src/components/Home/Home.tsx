@@ -37,7 +37,8 @@ const Home: FunctionComponent<HomeProps> = props => {
         onChange={props.onChange} 
         onChangeSuggestionHint={props.onChangeSuggestionHint}
         horizontal = {true}
-        suggestions = {props.suggestions}/>
+        suggestions = {props.suggestions}
+        title = {"Selecciona tu destino"}/>
       <PaintingSquare 
             loading ={true} promotions = {props.promotions} />      
     </Grid>

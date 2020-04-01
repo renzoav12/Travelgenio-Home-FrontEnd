@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect } from 'react';
+import React, { FunctionComponent } from 'react';
 import { connect } from 'react-redux';
 import { RootState } from '../../store';
 import Home, { HomeProps } from '../../components/Home/Home';
