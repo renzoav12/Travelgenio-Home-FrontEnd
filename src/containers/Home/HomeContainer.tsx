@@ -6,10 +6,15 @@ import { thunkSearchBoxChange } from '../../actions/searchBox/searchBox.action';
 import { fetchSuggestionSearch } from '../../actions/suggestion/suggestion.action';
 import { Container } from "@material-ui/core";
 import moment from 'moment';
+import { loadI18n } from '../../actions/i18n/i18n.action';
+
 
 const HomeContainer: FunctionComponent<HomeProps> = props => {
-  
-  return <Container maxWidth="lg">
+   useEffect(() => {
+    props.loadI18n();
+  }, []);
+ 
+ return <Container maxWidth="lg">
         <Home
           initSearchBox = {
             {
@@ -34,6 +39,7 @@ const HomeContainer: FunctionComponent<HomeProps> = props => {
           loading={props.loading}
           suggestions={props.suggestions}
           promotions= {props.promotions}
+          loadI18n={props.loadI18n}
           />
       </Container>;
 }
@@ -48,6 +54,7 @@ export default connect(
     mapStateToProps,
     {
         onChange: thunkSearchBoxChange,
-        onChangeSuggestionHint: fetchSuggestionSearch
+        onChangeSuggestionHint: fetchSuggestionSearch,
+        loadI18n: loadI18n
     }
 )(HomeContainer);
