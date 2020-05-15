@@ -18,14 +18,14 @@ const Data = [
     litleImage: "/static/images/mini_image3.png",
     title: "Desde 87.39 EUR por noche.",
     description: 'Barcelona',
-    link: 'https://' + window.location.hostname + '/hotels/search/METROPOLITAN_AREA/179992/2020-03-23/2020-03-26/2/es' 
+    link: 'https://' + window.location.hostname + '/hotels/search/METROPOLITAN_AREA/179992/2020-06-23/2020-06-26/2/es' 
     },
     {
     urlImage: "/static/images/image4.png",
     litleImage: "/static/images/mini_image4.png",
     title: 'Desde 200 EUR por noche.',
     description: 'Amsterdam',
-    link: 'https://' + window.location.hostname + '/hotels/search/METROPOLITAN_AREA/178229/2020-03-23/2020-03-26/2/es'
+    link: 'https://' + window.location.hostname + '/hotels/search/METROPOLITAN_AREA/178229/2020-06-23/2020-06-26/2/es'
     }
   ];
 
