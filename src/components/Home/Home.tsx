@@ -1,18 +1,14 @@
 import React, { FunctionComponent } from 'react';
-import { Grid } from '@material-ui/core';
+import { Grid, Box } from '@material-ui/core';
 import SearchBox from '@hotels/search-box';
 import { SearchBoxState } from '@hotels/search-box';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-
 import { SuggestionHint, SuggestionEntry } from '@hotels/search-box/dist/Autocomplete/Autocomplete';
 import PaintingSquare from '../PaintingSquare/PaintingSquare';
 import { PromotionEntry } from '../PaintingSquare/PaintingSquare';
 import Keys from "@hotels/translation-keys";
 import {translate} from "@hotels/translation";
 import PropTypes from "prop-types";
-import { loadI18n } from '../../actions/i18n/i18n.action';
-
-
 
 export interface HomeProps {
     initSearchBox: SearchBoxState;
@@ -28,7 +24,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     search: {
       marginTop: 20,
-      marginBottom: 20
+      width: "100%"
     }
   }),
 );
