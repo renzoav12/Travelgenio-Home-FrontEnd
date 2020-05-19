@@ -39,7 +39,7 @@ export interface SearchNameSuggestionParameters {
 export const fetchSuggestionSearch = (queryParameters: SearchSuggestionParameters): ThunkResult<void> => async dispatch => {
     handleFetchSuggestionSearch(dispatch);
     try {
-        const response: AxiosResponse<Array<SuggestionEntry>> = await search.get('/suggestions', {
+        const response: AxiosResponse<Array<SuggestionEntry>> = await search.get('/autocomplete', {
             params: queryParameters
         });
         handleSuggestionSearchSuccess(dispatch, response.data);
