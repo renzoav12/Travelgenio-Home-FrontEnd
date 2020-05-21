@@ -13,9 +13,6 @@ const HomeContainer: FunctionComponent<HomeProps> = (props) => {
     props.loadI18n();
   }, []);
 
-  const checkIn = moment().add(1, "month");
-  const checkOut = moment().add(1, "month").add(1, "week");
-
   return (
     <Container maxWidth="lg">
       <Home
@@ -33,8 +30,8 @@ const HomeContainer: FunctionComponent<HomeProps> = (props) => {
             ],
           },
           stay: {
-            from: checkIn,
-            to: checkOut,
+            from: null,
+            to: null,
           },
         }}
         onChange={props.onChange}
