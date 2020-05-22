@@ -20,15 +20,10 @@ const resolveTranslations = async () => {
     baseURL: config.TRANSLATION_API
   });
   let translations: ITranslations = {};
-  const key = "translations";
-  const storage = window.localStorage;
 
   const response: AxiosResponse<any> = await axiosInstance.get(
       "/translations"
   );
   translations[response.data.locale] = response.data.translations;
-  storage.setItem(key, JSON.stringify(translations));
-  
-
   return translations;
 };
