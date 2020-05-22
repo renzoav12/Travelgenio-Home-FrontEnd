@@ -31,7 +31,6 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const Home: FunctionComponent<HomeProps> = (props, context) => {
   const classes = useStyles();
-  console.log(Keys.common.select_your_destination);
   return <Grid container alignItems="flex-start">
     <Grid container item xs={12} className={classes.search}>
       <SearchBox
