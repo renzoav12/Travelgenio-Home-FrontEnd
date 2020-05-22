@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const Home: FunctionComponent<HomeProps> = (props, context) => {
   const classes = useStyles();
-  
+  console.log(Keys.common.select_your_destination);
   return <Grid container alignItems="flex-start">
     <Grid container item xs={12} className={classes.search}>
       <SearchBox
@@ -41,7 +41,7 @@ const Home: FunctionComponent<HomeProps> = (props, context) => {
         onChangeSuggestionHint={props.onChangeSuggestionHint}
         horizontal = {true}
         suggestions = {props.suggestions}
-        title = {translate(context, Keys.common.change_your_destination)}/>
+        title={translate(context, Keys.common.select_your_destination)}/>
       <PaintingSquare 
             loading ={true} promotions = {props.promotions} />      
     </Grid>
