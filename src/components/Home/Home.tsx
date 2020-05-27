@@ -29,6 +29,7 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
+
 const Home: FunctionComponent<HomeProps> = (props, context) => {
   const classes = useStyles();
   return <Grid container alignItems="flex-start">
