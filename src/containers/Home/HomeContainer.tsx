@@ -6,6 +6,7 @@ import { thunkSearchBoxChange } from "../../actions/searchBox/searchBox.action";
 import { fetchSuggestionSearch } from "../../actions/suggestion/suggestion.action";
 import { Container } from "@material-ui/core";
 import { loadI18n } from "../../actions/i18n/i18n.action";
+import moment from "moment";
 
 const HomeContainer: FunctionComponent<HomeProps> = (props) => {
   useEffect(() => {
@@ -29,8 +30,8 @@ const HomeContainer: FunctionComponent<HomeProps> = (props) => {
             ],
           },
           stay: {
-            from: undefined,
-            to: undefined,
+            from: moment().add(14, 'days'),
+            to: moment().add(14, 'days'),
           },
         }}
         onChange={props.onChange}
