@@ -29,8 +29,8 @@ const HomeContainer: FunctionComponent<HomeProps> = (props) => {
             ],
           },
           stay: {
-            from: null,
-            to: null,
+            from: undefined,
+            to: undefined,
           },
         }}
         onChange={props.onChange}
