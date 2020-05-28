@@ -30,8 +30,8 @@ const HomeContainer: FunctionComponent<HomeProps> = (props) => {
             ],
           },
           stay: {
-            from: moment().add(14, 'days'),
-            to: moment().add(14, 'days'),
+            from: undefined,
+            to: undefined,
           },
         }}
         onChange={props.onChange}
