@@ -5,16 +5,13 @@ import Home, { HomeProps } from "../../components/Home/Home";
 import { thunkSearchBoxChange } from "../../actions/searchBox/searchBox.action";
 import { fetchSuggestionSearch } from "../../actions/suggestion/suggestion.action";
 import { Container } from "@material-ui/core";
-import moment from "moment";
 import { loadI18n } from "../../actions/i18n/i18n.action";
+import moment from "moment";
 
 const HomeContainer: FunctionComponent<HomeProps> = (props) => {
   useEffect(() => {
     props.loadI18n();
   }, []);
-
-  const checkIn = moment().add(1, "month");
-  const checkOut = moment().add(1, "month").add(1, "week");
 
   return (
     <Container maxWidth="lg">
@@ -33,8 +30,8 @@ const HomeContainer: FunctionComponent<HomeProps> = (props) => {
             ],
           },
           stay: {
-            from: checkIn,
-            to: checkOut,
+            from: undefined,
+            to: undefined,
           },
         }}
         onChange={props.onChange}
