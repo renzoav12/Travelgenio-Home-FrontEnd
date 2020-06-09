@@ -17,7 +17,10 @@ export const loadI18n = () : ThunkAction<any, IreduxI18nState, any, any> => asyn
 
 const resolveTranslations = async () => {
   const axiosInstance = axios.create({
-    baseURL: config.TRANSLATION_API
+    baseURL: config.TRANSLATION_API,
+    headers: {
+      "OT-Origin-Host": window.location.hostname,
+    },
   });
   let translations: ITranslations = {};
 
