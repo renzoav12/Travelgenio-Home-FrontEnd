@@ -9,14 +9,14 @@ const Data = [
       litleImage: "/static/images/mini_image1.png",
       title: 'Desde 76.43 EUR por noche.',
       description: 'Lisboa',
-      link: 'https://' + window.location.hostname + '/hotels/search/CITY/2829/' + dateStart + '/' + dateEnd + '/2/es'
+      link: 'https://' + window.location.hostname + '/hotels/search/METROPOLITAN_AREA/178278/' + dateStart + '/' + dateEnd + '/2/es'
     },
     {
      urlImage: "/static/images/image2.png",
      litleImage: "/static/images/mini_image2.png",
      title: 'Desde 109.88 EUR por noche.',
      description: 'Palma de Mallorca',
-     link: 'https://' + window.location.hostname + '/hotels/search/METROPOLITAN_AREA/178278/' + dateStart + '/' + dateEnd + '/2/es'
+     link: 'https://' + window.location.hostname + '/hotels/search/CITY/2829/' + dateStart + '/' + dateEnd + '/2/es'
     },
     {
     urlImage: "/static/images/image3.png",
