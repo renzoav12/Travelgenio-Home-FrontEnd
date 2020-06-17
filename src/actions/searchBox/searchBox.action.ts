@@ -10,7 +10,7 @@ export const thunkSearchBoxChange = (
   searchBoxState: SearchBoxState
 ): ThunkResult<void> => async () => {
   const params = createSearchParameterRequest(searchBoxState);
-  const url = `/hotels/search/${params.locationType}/${params.locationCode}/${params.checkIn}/${params.checkOut}/${params.occupancy}/es`;
+  const url = `/hotels/search/${params.locationType}/${params.locationCode}/${params.checkIn}/${params.checkOut}/${params.occupancy}`;
   console.info("change to " + url);
   window.location.href = url;
 };
