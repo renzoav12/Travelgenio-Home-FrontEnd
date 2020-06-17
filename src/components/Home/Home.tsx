@@ -19,6 +19,7 @@ export interface HomeProps {
     suggestions: SuggestionEntry[];
     promotions: PromotionEntry[];
     loadI18n: () => void;
+    initCobrand?: (url: string, emailSubscriptionUrl: string) => void;
 }
 
 const useStyles = makeStyles((theme: Theme) =>

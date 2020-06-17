@@ -6,11 +6,13 @@ import { thunkSearchBoxChange } from "../../actions/searchBox/searchBox.action";
 import { fetchSuggestionSearch } from "../../actions/suggestion/suggestion.action";
 import { Container } from "@material-ui/core";
 import { loadI18n } from "../../actions/i18n/i18n.action";
-import moment from "moment";
+import { initCobrand } from "@hotels/header-footer";
+import config from "../../config";
 
 const HomeContainer: FunctionComponent<HomeProps> = (props) => {
   useEffect(() => {
     props.loadI18n();
+    props.initCobrand && props.initCobrand(config.COBRAND, config.EMAIL_SUBSCRIPTION);
   }, []);
 
   return (
@@ -55,4 +57,5 @@ export default connect(mapStateToProps, {
   onChange: thunkSearchBoxChange,
   onChangeSuggestionHint: fetchSuggestionSearch,
   loadI18n: loadI18n,
+  initCobrand: initCobrand,
 })(HomeContainer);

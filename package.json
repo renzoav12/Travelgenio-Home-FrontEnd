@@ -4,8 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@hotels/footer": "0.0.6",
-    "@hotels/header": "0.0.5",
+    "@hotels/header-footer": "0.0.1",
     "@hotels/search-box": "0.0.18",
     "@hotels/styles": "0.0.1",
     "@hotels/translation": "0.0.8",
