@@ -1249,10 +1249,10 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
-"@hotels/header-footer@0.0.1":
-  version "0.0.1"
-  resolved "https://nexus.travelgenio.com/repository/travelgenio-npm/@hotels/header-footer/-/header-footer-0.0.1.tgz#241c6480c9c98c7588e1a390539ac9dd3f24a317"
-  integrity sha512-aNCXZTl4GZpPNrfEHT4R5+pAfAeIFEmNAwxZ3cd575m1mjI1mEXEdXmOrbqrWHupo5QMq2z5vRpWiahch/PrGw==
+"@hotels/header-footer@0.0.2":
+  version "0.0.2"
+  resolved "https://nexus.travelgenio.com/repository/travelgenio-npm/@hotels/header-footer/-/header-footer-0.0.2.tgz#499178fa133412bfed5e9708364b31dd3fb4cc94"
+  integrity sha512-iK6SVENlG2o46gynAop1nazLGTrq1GnJrlRKK0OlNsH9BUJ9KUV+Sx+M9WWld+VceOz2Oh6pdVU79hw1QVK+4w==
 
 "@hotels/search-box@0.0.18":
   version "0.0.18"
