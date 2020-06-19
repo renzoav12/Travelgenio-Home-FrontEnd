@@ -9,7 +9,6 @@ import { PromotionEntry } from '../PaintingSquare/PaintingSquare';
 import Keys from "@hotels/translation-keys";
 import {translate} from "@hotels/translation";
 import PropTypes from "prop-types";
-import moment from 'moment';
 
 export interface HomeProps {
     initSearchBox: SearchBoxState;
