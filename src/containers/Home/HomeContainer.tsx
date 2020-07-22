@@ -42,6 +42,7 @@ const HomeContainer: FunctionComponent<HomeProps> = (props) => {
         suggestions={props.suggestions}
         promotions={props.promotions}
         loadI18n={props.loadI18n}
+        locale={props.locale}
       />
     </Container>
   );
@@ -50,6 +51,7 @@ const HomeContainer: FunctionComponent<HomeProps> = (props) => {
 const mapStateToProps = (rootState: RootState) => {
   return {
     suggestions: rootState.searchSuggestion.suggestions,
+    locale: rootState.locale
   };
 };
 

@@ -9,6 +9,8 @@ import { PromotionEntry } from '../PaintingSquare/PaintingSquare';
 import Keys from "@hotels/translation-keys";
 import {translate} from "@hotels/translation";
 import PropTypes from "prop-types";
+import { LocaleState } from '../../reducers/localeReducer';
+
 
 export interface HomeProps {
     initSearchBox: SearchBoxState;
@@ -19,6 +21,7 @@ export interface HomeProps {
     promotions: PromotionEntry[];
     loadI18n: () => void;
     initCobrand?: (url: string, emailSubscriptionUrl: string) => void;
+    locale: LocaleState;
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -42,7 +45,8 @@ const Home: FunctionComponent<HomeProps> = (props, context) => {
         onChangeSuggestionHint={props.onChangeSuggestionHint}
         horizontal = {true}
         suggestions = {props.suggestions}
-        title={translate(context, Keys.common.select_your_destination)}/>
+        title={translate(context, Keys.common.select_your_destination)}
+        locale={props.locale.code === null ? "" : props.locale.code}/>
       <PaintingSquare 
             loading ={true} promotions = {props.promotions} />      
     </Grid>
