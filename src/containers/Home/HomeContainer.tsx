@@ -6,6 +6,7 @@ import { thunkSearchBoxChange } from "../../actions/searchBox/searchBox.action";
 import { fetchSuggestionSearch } from "../../actions/suggestion/suggestion.action";
 import { Container } from "@material-ui/core";
 import { loadI18n } from "../../actions/i18n/i18n.action";
+import {thunkOfferLoad} from '../../actions/offers/offer.action'
 import { initCobrand } from "@hotels/header-footer";
 import config from "../../config";
 
@@ -13,6 +14,7 @@ const HomeContainer: FunctionComponent<HomeProps> = (props) => {
   useEffect(() => {
     props.loadI18n();
     props.initCobrand && props.initCobrand(config.COBRAND, config.EMAIL_SUBSCRIPTION);
+    props.offerLoad(config.OFFERS);
   }, []);
 
   return (
@@ -43,6 +45,9 @@ const HomeContainer: FunctionComponent<HomeProps> = (props) => {
         promotions={props.promotions}
         loadI18n={props.loadI18n}
         locale={props.locale}
+        offerLoad={props.offerLoad}
+        offers={props.offers}
+        offerStatus={props.offerStatus}
       />
     </Container>
   );
@@ -51,7 +56,9 @@ const HomeContainer: FunctionComponent<HomeProps> = (props) => {
 const mapStateToProps = (rootState: RootState) => {
   return {
     suggestions: rootState.searchSuggestion.suggestions,
-    locale: rootState.locale
+    locale: rootState.locale,
+    offers: rootState.offer.offers,
+    offerStatus: rootState.offer.offerStatus
   };
 };
 
@@ -60,4 +67,5 @@ export default connect(mapStateToProps, {
   onChangeSuggestionHint: fetchSuggestionSearch,
   loadI18n: loadI18n,
   initCobrand: initCobrand,
+  offerLoad: thunkOfferLoad,
 })(HomeContainer);

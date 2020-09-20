@@ -1,3 +1,4 @@
+
 export interface SearchHeaderParameters {
   readonly country: string;
 }
