@@ -9,7 +9,6 @@ import Card from "../Card/Card";
 export interface Props {
     accommodations: Array<AccommodationProps>;
     nameDestination: string;
-    id: string;
 }
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -81,11 +80,12 @@ const Slide: FunctionComponent<Props> = (props) => {
     };
 
 
-
-    const cards: any = props.accommodations.map((accommodation: AccommodationProps, index: number) => {
-        return (
+    const cards: any = props.accommodations.map(
+        (accommodation: AccommodationProps, index: number) => {
+            return (
+            
             <Grid container item xs={12} md={4} key={index}>
-                <Box className={classes.none}>
+                <Box className={getClassName(index)}>
                     <Card
                         accommodation={accommodation}
                         nameDestination={props.nameDestination}
@@ -95,6 +95,8 @@ const Slide: FunctionComponent<Props> = (props) => {
         );
 
     });
+
+
 
 
     return <Grid container alignItems="stretch">

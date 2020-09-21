@@ -1,4 +1,5 @@
 import React, { FunctionComponent, Fragment } from 'react';
+import { Carousel } from "react-responsive-carousel";
 import {
   makeStyles,
   Theme,
@@ -7,6 +8,8 @@ import {
 import Slide from './Slide/Slide';
 import Skeleton from "react-loading-skeleton";
 import { Status } from '../../model/Offer';
+import _ from "lodash";
+
 
 export interface Offers {
   offers: OfferProps;
@@ -61,29 +64,18 @@ const useStyles = makeStyles((theme: Theme) =>
     container: {
       width: "100%",
     },
-    card: {
-      marginTop: 20,
-    },
     skeleton: {
       width: "100%",
       "& .MuiSkeleton-text": {
         transform: "none",
       },
     },
-    root: {
-      display: 'flex',
-      flexWrap: 'wrap',
-      '& > *': {
-        margin: theme.spacing(1),
-        width: theme.spacing(48.6),
-        height: theme.spacing(80),
-      },
+    middle: {
+      width: "100%",
+      marginLeft: 10,
+      marginRight: 10,
     },
-    paper: {
-      padding: theme.spacing(1),
-      textAlign: 'center',
-      color: theme.palette.text.secondary,
-    }, carousel: {
+    carousel: {
       "& .carousel": {
         borderRadius: 5,
       },
@@ -96,22 +88,29 @@ const useStyles = makeStyles((theme: Theme) =>
     },
   })
 );
-
 const OfferResults: FunctionComponent<Offers> = props => {
   const classes = useStyles();
 
-  const destination = (destinations: Array<DestinationProps>) => {
-    return (destinations.map((destination: DestinationProps , index: number) => {
-      return (
-            <Slide nameDestination = {destination.name} 
-                   id={destination.id}
-                   accommodations = {destination.accommodations}
-                   key={index}
-             />
-      );
-    }));
-  }
+  const topDestination = props.offers.topDestination;
+  //const lastDestination = props.offers.lastMinuteDefinition;
+  //const cheapestDestination = props.offers.cheapestDestination;
 
+  const accommodationsGroup = topDestination.map((aux:DestinationProps ) => {
+        return (aux.accommodations)
+  });
+
+  const slides: any = accommodationsGroup.map(
+    (accommodations: Array<AccommodationProps>, index: number) => {
+      return (
+          <Slide 
+              accommodations={accommodations}
+              nameDestination={"por ahora hola"}
+              key={index}
+          />
+      );
+    }
+  );
+  
   const skeletons = () => {
     return (
       <Grid container className={classes.container}>
@@ -130,17 +129,23 @@ const OfferResults: FunctionComponent<Offers> = props => {
     );
   }
 
-  const getLastDestination = () => {
-    if (props.offers.lastMinuteDefinition.length <= 1) {
-      return null;
-    }
-    return (
-        destination(props.offers.cheapestDestination)
 
-    )
+  const carousel = () => {
+    return (
+      <Carousel
+        className={classes.carousel}
+        showStatus={false}
+        showThumbs={false}
+        showIndicators={false}
+      >
+        {slides}
+      </Carousel>
+    );
   };
+
+
   return (
-      <Fragment> { props.loadingStatus === Status.SUCCESS ? getLastDestination() : skeletons()}
+      <Fragment> { props.loadingStatus === Status.SUCCESS ? carousel() : skeletons()}
       </Fragment>
   )
 
