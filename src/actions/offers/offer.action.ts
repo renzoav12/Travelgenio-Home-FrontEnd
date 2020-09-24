@@ -6,7 +6,7 @@ import {
 } from  './offer.actionTypes'; 
 import { RootState } from "../../store";
 import axios, { AxiosResponse } from 'axios';
-import {OfferProps} from './../../components/Offer/Offer';
+import {OfferProps} from '../../components/Offer/LastDestination';
 import { ThunkAction } from 'redux-thunk';
 import { RootAction } from '../action';
 import { OriginHostHeader } from '../../api/headers';

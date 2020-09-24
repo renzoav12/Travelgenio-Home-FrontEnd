@@ -1,15 +1,18 @@
 import React, { FunctionComponent } from "react";
-import { AccommodationProps } from "../Offer";
-import {
-    Grid, Box,
-    makeStyles, Theme, createStyles
-} from "@material-ui/core";
+import { AccommodationProps } from "../LastDestination";
+import {Box, makeStyles, Theme, createStyles} from "@material-ui/core";
 import Card from "../Card/Card";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
+
 
 export interface Props {
     accommodations: Array<AccommodationProps>;
     nameDestination: string;
 }
+
+const height_proportion = '26.6%';
+
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         none: {
@@ -56,13 +59,32 @@ const useStyles = makeStyles((theme: Theme) =>
         slideContainer: {
             border: "1px dashed red",
         },
+        carousel: {
+            "& .carousel": {
+                borderRadius: 7,
+            },
+            "& .control-arrow": {
+                background: "rgba(0,0,0,0.30) !important",
+            },
+            "& .slide": {
+                background: "rgba(0,0,0,0)",
+            },
+            paddingBottom: 6,
+            paddingTop: 6
+
+        },
+        boxCarousel: {
+            width: height_proportion
+        },
+        box1: {
+            height: 420
+        }
     })
 );
 
-const Slide: FunctionComponent<Props> = (props) => {
+const SlideAccommodation: FunctionComponent<Props> = (props) => {
 
     const classes = useStyles();
-
     const getClassName = (index: number): string => {
 
         if (index === 0 && props.accommodations.length > 1) {
@@ -79,31 +101,29 @@ const Slide: FunctionComponent<Props> = (props) => {
         }
     };
 
-
     const cards: any = props.accommodations.map(
         (accommodation: AccommodationProps, index: number) => {
             return (
-            
-            <Grid container item xs={12} md={4} key={index}>
-                <Box className={getClassName(index)}>
+                <Box className={classes.box1}>
                     <Card
                         accommodation={accommodation}
                         nameDestination={props.nameDestination}
                     />
                 </Box>
-            </Grid>
-        );
 
-    });
+            );
+        });
 
-
-
-
-    return <Grid container alignItems="stretch">
-        {cards}
-    </Grid>;
-
-
+    return (
+        <Box className={classes.box1}>
+            <Carousel className={classes.carousel}
+                showStatus={false}
+                showThumbs={false}
+                showIndicators={false}>
+                {cards}
+            </Carousel>
+        </Box>
+    )
 }
 
-export default Slide;
+export default SlideAccommodation;

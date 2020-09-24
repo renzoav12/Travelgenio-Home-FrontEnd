@@ -1,6 +1,5 @@
 import { Action } from "redux";
-import { OfferProps } from "../../components/Offer/Offer";
-
+import {OfferProps} from '../../components/Offer/LastDestination';
 
 export const OFFER_FETCH_START = 'OFFER_FETCH_START';
 export const OFFER_FETCH_SUCCESS = 'OFFER_FETCH_SUCCESS';

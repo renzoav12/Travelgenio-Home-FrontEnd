@@ -3,7 +3,7 @@ import { Box, Button } from "@material-ui/core";
 import Keys from "@hotels/translation-keys";
 import Translate from "@hotels/translation";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
-import { PricingProps } from "../Offer";
+import { PricingProps } from "../LastDestination";
 
 export interface Props {
   pricing: PricingProps;

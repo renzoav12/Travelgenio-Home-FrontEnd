@@ -1,20 +1,21 @@
-import React, { FunctionComponent, Fragment } from 'react';
-import { Carousel } from "react-responsive-carousel";
+import React, { FunctionComponent } from 'react';
 import {
   makeStyles,
   Theme,
-  createStyles, Grid, Paper
+  createStyles, Grid, Paper, Box,
 } from '@material-ui/core';
-import Slide from './Slide/Slide';
+
 import Skeleton from "react-loading-skeleton";
 import { Status } from '../../model/Offer';
 import _ from "lodash";
+import SlideAccommodation from './Slide/SlideAccommodation';
 
 
 export interface Offers {
-  offers: OfferProps;
+  offers: Array<DestinationProps>;
   loadingStatus: string;
   offerLoad: (url: string) => void;
+
 }
 
 export interface OfferProps {
@@ -48,9 +49,10 @@ export interface NightlyPriceProps {
 }
 
 export interface AccommodationContentProps {
-  name: String;
+  name: string;
   image: string;
   address: AddressAccommodationProps;
+  category: CategoryAccommodationProps;
 }
 
 export interface AddressAccommodationProps {
@@ -58,6 +60,13 @@ export interface AddressAccommodationProps {
   state: string,
   country: string
 }
+
+export interface CategoryAccommodationProps {
+  code: string,
+  name: string
+}
+
+const aux2 = '32%';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -86,35 +95,49 @@ const useStyles = makeStyles((theme: Theme) =>
         background: "rgba(0,0,0,0)",
       },
     },
+    aux: {
+      width: aux2,
+      paddingLeft: 60
+    },
+    typeOffer: {
+        fontSize: "20pt",
+        fontWeight: "bold",
+        textAlign: "left",
+        maxHeight: 60,
+        overflowY: "hidden"
+      
+    }
   })
 );
-const OfferResults: FunctionComponent<Offers> = props => {
+const LastDestination: FunctionComponent<Offers> = props => {
   const classes = useStyles();
 
-  const topDestination = props.offers.topDestination;
-  //const lastDestination = props.offers.lastMinuteDefinition;
-  //const cheapestDestination = props.offers.cheapestDestination;
-
-  const accommodationsGroup = topDestination.map((aux:DestinationProps ) => {
-        return (aux.accommodations)
-  });
-
-  const slides: any = accommodationsGroup.map(
-    (accommodations: Array<AccommodationProps>, index: number) => {
+  const slides = (accommodationsGroup: Array<AccommodationProps>,
+                  name: string, index:number) => {
+      if (name === "no_city") {
+          return null;
+      }   
       return (
-          <Slide 
-              accommodations={accommodations}
-              nameDestination={"por ahora hola"}
-              key={index}
-          />
+        <SlideAccommodation
+          accommodations={accommodationsGroup}
+          nameDestination={name}
+          key={index}
+        />
       );
-    }
-  );
-  
+  };
+
+  const accommodationsGroup: any =  props.offers.map(
+    (aux: DestinationProps, index:number) => {
+      const accommodations = aux.accommodations;
+      const nameDestination = aux.name;
+      return slides(accommodations,nameDestination, index);
+
+ });
+
   const skeletons = () => {
     return (
-      <Grid container className={classes.container}>
-        <Grid item container xs={4}>
+      <Box>
+        <Grid item container >
           <Paper className={classes.skeleton}>
             <Skeleton height={170} width="100%" />
           </Paper>
@@ -125,30 +148,18 @@ const OfferResults: FunctionComponent<Offers> = props => {
             <Skeleton height={170} width="100%" />
           </Paper>
         </Grid>
-      </Grid>
+      </Box>
     );
   }
-
-
-  const carousel = () => {
-    return (
-      <Carousel
-        className={classes.carousel}
-        showStatus={false}
-        showThumbs={false}
-        showIndicators={false}
-      >
-        {slides}
-      </Carousel>
-    );
-  };
-
-
   return (
-      <Fragment> { props.loadingStatus === Status.SUCCESS ? carousel() : skeletons()}
-      </Fragment>
+    <Grid className={classes.aux}>
+      <Grid> 
+        <span className={classes.typeOffer}> ULTIMOS DESTINOS </span>
+      </Grid>
+      {props.loadingStatus === Status.SUCCESS ? accommodationsGroup : skeletons()}
+    </Grid>
   )
 
 }
 
-export default OfferResults;
+export default LastDestination;

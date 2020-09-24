@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { Grid, Box } from "@material-ui/core";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
-import { AccommodationContentProps, PricingProps } from "../Offer";
+import { AccommodationContentProps, PricingProps } from "../LastDestination";
 
 export interface Props {
   content: AccommodationContentProps;
@@ -30,6 +30,13 @@ const useStyles = makeStyles((theme: Theme) =>
       maxHeight: 60,
       overflowY: "hidden"
     },
+    nameRegion: {
+      fontSize: "20pt",
+      fontWeight: "bold",
+      textAlign: "left",
+      maxHeight: 60,
+      overflowY: "hidden"
+    },
   })
 );
 
@@ -38,9 +45,8 @@ const Content: FunctionComponent<Props> = (props) => {
   return (
     <Grid container className={classes.content}>
       <Grid item xs={12} container>
+      <Box className={classes.nameRegion}>{props.nameDestination}</Box> 
       <Box className={classes.nameCity}>{props.content.name}</Box>
-        <Box className={classes.name}>{props.nameDestination === "no_city" ? 
-              props.content.address.city : props.nameDestination}</Box>
       </Grid>
       <Grid item xs={12} container>
       </Grid>

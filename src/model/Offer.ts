@@ -1,4 +1,4 @@
-import { OfferProps} from "../components/Offer/Offer";
+import { OfferProps} from "../components/Offer/LastDestination";
  
 export interface Offer {
        offers: OfferProps,

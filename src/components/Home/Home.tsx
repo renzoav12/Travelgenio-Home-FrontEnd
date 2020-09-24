@@ -10,7 +10,10 @@ import Keys from "@hotels/translation-keys";
 import {translate} from "@hotels/translation";
 import PropTypes from "prop-types";
 import { LocaleState } from '../../reducers/localeReducer';
-import Offer, { OfferProps } from '../Offer/Offer';
+import  { OfferProps } from '../Offer/LastDestination';
+import TopDestination from '../Offer/TopDestination';
+import CheapestDestination from '../Offer/CheapestDestination';
+import LastDestination from '../Offer/LastDestination';
 
 export interface HomeProps {
     initSearchBox: SearchBoxState;
@@ -38,8 +41,8 @@ const useStyles = makeStyles((theme: Theme) =>
 
 
 const Home: FunctionComponent<HomeProps> = (props, context) => {
+
   const classes = useStyles();
-  console.log(props.offerStatus);
   return <Grid container alignItems="flex-start">
     <Grid container item xs={12} className={classes.search}>
       <SearchBox
@@ -51,7 +54,16 @@ const Home: FunctionComponent<HomeProps> = (props, context) => {
         suggestions = {props.suggestions}
         title={translate(context, Keys.common.select_your_destination)}
         locale={props.locale.code === null ? "" : props.locale.code}/> 
-      <Offer offers={props.offers} loadingStatus={props.offerStatus} offerLoad={props.offerLoad}/>      
+      
+      <LastDestination offers={props.offers.lastMinuteDefinition} 
+              loadingStatus={props.offerStatus} offerLoad={props.offerLoad}/>      
+      
+      <CheapestDestination offers={props.offers.cheapestDestination}
+                      loadingStatus={props.offerStatus} offerLoad={props.offerLoad} />
+      
+      <TopDestination offers={props.offers.topDestination}
+                      loadingStatus={props.offerStatus}
+                      offerLoad={props.offerLoad} />
     </Grid>
   </Grid>;
 }

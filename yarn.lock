@@ -1290,6 +1290,11 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
+"@hotels/category@0.0.1":
+  version "0.0.1"
+  resolved "https://nexus.travelgenio.com/repository/travelgenio-npm/@hotels/category/-/category-0.0.1.tgz#eed780479334a4385b55e7f68ca62dcc7a131572"
+  integrity sha512-5cHJxCdxTUYlb2vu37doZgMI/WVmtuIVs958xbeVXEsYPdTMBjfy7o5Yv1GtXhGCQkIi3BqumofFG25d233a/w==
+
 "@hotels/header-footer@0.0.3":
   version "0.0.3"
   resolved "https://nexus.travelgenio.com/repository/travelgenio-npm/@hotels/header-footer/-/header-footer-0.0.3.tgz#509c183e24836971d762bfd5c5a0834c4b2a118b"
@@ -9795,7 +9800,7 @@ react-redux@7.1.3:
     prop-types "^15.7.2"
     react-is "^16.9.0"
 
-react-responsive-carousel@^3.2.7:
+react-responsive-carousel@^3.2.9:
   version "3.2.9"
   resolved "https://nexus.travelgenio.com/repository/travelgenio-npm/react-responsive-carousel/-/react-responsive-carousel-3.2.9.tgz#15ea4d2849bdce2fe3d9071976dd86479e6d6e62"
   integrity sha512-oTLbI4VnZXmRDRHBa7EHFCydHi4ZraH5sZTMR/7pMnapCTdNzdwC3sXeJVduJYM29TEs9lGYgkKQPLB6GlEuUg==
