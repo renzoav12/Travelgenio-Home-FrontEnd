@@ -6,7 +6,6 @@ import { AccommodationContentProps, PricingProps } from "../LastDestination";
 export interface Props {
   content: AccommodationContentProps;
   pricing: PricingProps;
-  nameDestination: string;
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -24,31 +23,38 @@ const useStyles = makeStyles((theme: Theme) =>
       overflowY: "hidden"
     },
     nameCity: {
-      fontSize: "12pt",
-      fontWeight: "bold",
+      fontSize: "15px",
+      fontWeight: 400,
       textAlign: "left",
       maxHeight: 60,
-      overflowY: "hidden"
+      overflowY: "hidden",
+      width: "100%",
+      height: "100%"
     },
-    nameRegion: {
-      fontSize: "20pt",
-      fontWeight: "bold",
+    nameAccommodation: {
+      fontSize: 24,
+      fontWeight: 700 ,
       textAlign: "left",
       maxHeight: 60,
-      overflowY: "hidden"
+      overflowY: "hidden",
+      width: "100%",
+      lineHeight: "28px",
+      height: 80
     },
+    contentTwo: {
+      paddingTop: 10
+    }
   })
 );
 
 const Content: FunctionComponent<Props> = (props) => {
   const classes = useStyles();
+  
   return (
     <Grid container className={classes.content}>
-      <Grid item xs={12} container>
-      <Box className={classes.nameRegion}>{props.nameDestination}</Box> 
-      <Box className={classes.nameCity}>{props.content.name}</Box>
-      </Grid>
-      <Grid item xs={12} container>
+      <Grid className={classes.contentTwo} item xs={12} container >
+          <Grid className={classes.nameAccommodation}>{props.content.name}</Grid> 
+          <Grid className={classes.nameCity}>{props.content.address.state}</Grid>
       </Grid>
     </Grid>
   );

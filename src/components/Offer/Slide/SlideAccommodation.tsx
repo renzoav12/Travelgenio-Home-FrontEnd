@@ -1,9 +1,11 @@
 import React, { FunctionComponent } from "react";
 import { AccommodationProps } from "../LastDestination";
-import {Box, makeStyles, Theme, createStyles} from "@material-ui/core";
-import Card from "../Card/Card";
+import { makeStyles, Theme, createStyles, Grid } from "@material-ui/core";
+
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from 'react-responsive-carousel';
+import { Carousel } from "react-responsive-carousel";
+import SlideCard from "./Slide";
+import _ from "lodash";
 
 
 export interface Props {
@@ -21,50 +23,35 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         first: {
             display: "flex",
-            [theme.breakpoints.up("xs")]: {
-                marginBottom: 5,
-                marginRight: 0,
-            },
-            [theme.breakpoints.up("md")]: {
-                marginBottom: 0,
-                marginRight: 5,
-            },
-        },
-        middle: {
-            display: "flex",
-            [theme.breakpoints.up("xs")]: {
-                marginTop: 5,
-                marginBottom: 5,
-                marginLeft: 0,
-                marginRight: 0,
-            },
-            [theme.breakpoints.up("md")]: {
-                marginTop: 0,
-                marginBottom: 0,
-                marginLeft: 5,
-                marginRight: 5,
-            },
-        },
-        last: {
-            display: "flex",
-            [theme.breakpoints.up("xs")]: {
-                marginTop: 5,
-                marginLeft: 0,
-            },
-            [theme.breakpoints.up("md")]: {
-                marginLeft: 5,
-                marginTop: 0,
-            },
+                marginBottom: 15,
+                marginRight: 18,
+                marginLeft: 5
         },
         slideContainer: {
             border: "1px dashed red",
         },
         carousel: {
+            "& .carousel .control-next.control-arrow:before":{
+                borderLeftColor: "rgba(111, 103, 103)"      
+            },
+            "& .carousel .control-prev.control-arrow:before": {
+                borderRightColor: "rgba(111, 103, 103)"     
+            },
+            "& .carousel.carousel-slider .control-arrow" :{
+                marginTop: 185,
+                marginBottom: 185,
+                borderRadius: 77,
+                background:"#ffffff",
+                marginRight: 40  
+            },
+            "& .carousel .control-arrow, .carousel.carousel-slider .control-arrow" :{
+                opacity: 10
+            },
             "& .carousel": {
-                borderRadius: 7,
+                borderRadius: 10,
             },
             "& .control-arrow": {
-                background: "rgba(0,0,0,0.30) !important",
+                background: "#ffffff !important",
             },
             "& .slide": {
                 background: "rgba(0,0,0,0)",
@@ -85,44 +72,36 @@ const useStyles = makeStyles((theme: Theme) =>
 const SlideAccommodation: FunctionComponent<Props> = (props) => {
 
     const classes = useStyles();
-    const getClassName = (index: number): string => {
 
-        if (index === 0 && props.accommodations.length > 1) {
-            return classes.first;
-        } else if (
-            index + 1 === props.accommodations.length &&
-            props.accommodations.length > 1
-        ) {
-            return classes.last;
-        } else if (props.accommodations.length > 2) {
-            return classes.middle;
-        } else {
-            return classes.none;
-        }
-    };
+    const group: any = _.chunk(props.accommodations, 4);
 
-    const cards: any = props.accommodations.map(
-        (accommodation: AccommodationProps, index: number) => {
+    const slides:  any = group.map(
+        (accommodation: Array<AccommodationProps>, index: number) => {
             return (
-                <Box className={classes.box1}>
-                    <Card
-                        accommodation={accommodation}
-                        nameDestination={props.nameDestination}
-                    />
-                </Box>
-
+                <SlideCard
+                    key={index}
+                    accommodations={accommodation}/>
             );
-        });
+        }
+    );
+
+    const carousel = () => {
+        return (
+          <Carousel
+            className={classes.carousel}
+            showStatus={false}
+            showThumbs={false}
+            showIndicators={false}
+          >
+            {slides}
+          </Carousel>
+        );
+      };
 
     return (
-        <Box className={classes.box1}>
-            <Carousel className={classes.carousel}
-                showStatus={false}
-                showThumbs={false}
-                showIndicators={false}>
-                {cards}
-            </Carousel>
-        </Box>
+        <Grid container item xs={4} md={12}>
+            {carousel()}
+        </Grid>
     )
 }
 

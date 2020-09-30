@@ -13,25 +13,14 @@ const initialState: Offer = {
         exists: false,
       },
     offers: {
-        topDestination: [{
-            id: "",
-            name: "",
-            description: "",
-            accommodations:[]
-        }],
-        cheapestDestination: [{
-            id: "",
-            name: "",
-            description: "",
-            accommodations:[]
-        }],
-        lastMinuteDefinition: [{
-            id: "",
-            name: "",
-            description: "",
-            accommodations:[]
-        }]
-    
+        regions: [
+            {
+                id: "",
+                name: "",
+                description: "",
+                accommodations:[]
+            }
+        ]
     },
     offerStatus: Status.LOADING
 }

@@ -39,7 +39,7 @@
     "redux-i18n": "^1.5.19",
     "redux-thunk": "2.3.0",
     "typescript": "3.7.5"
-  },
+    },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

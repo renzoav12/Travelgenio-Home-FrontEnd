@@ -11,9 +11,9 @@ import {translate} from "@hotels/translation";
 import PropTypes from "prop-types";
 import { LocaleState } from '../../reducers/localeReducer';
 import  { OfferProps } from '../Offer/LastDestination';
-import TopDestination from '../Offer/TopDestination';
-import CheapestDestination from '../Offer/CheapestDestination';
-import LastDestination from '../Offer/LastDestination';
+import _ from "lodash";
+import Offers from '../Offer/Offers/Offers';
+
 
 export interface HomeProps {
     initSearchBox: SearchBoxState;
@@ -55,15 +55,8 @@ const Home: FunctionComponent<HomeProps> = (props, context) => {
         title={translate(context, Keys.common.select_your_destination)}
         locale={props.locale.code === null ? "" : props.locale.code}/> 
       
-      <LastDestination offers={props.offers.lastMinuteDefinition} 
-              loadingStatus={props.offerStatus} offerLoad={props.offerLoad}/>      
+      <Offers array={props.offers.regions} status={props.offerStatus} />
       
-      <CheapestDestination offers={props.offers.cheapestDestination}
-                      loadingStatus={props.offerStatus} offerLoad={props.offerLoad} />
-      
-      <TopDestination offers={props.offers.topDestination}
-                      loadingStatus={props.offerStatus}
-                      offerLoad={props.offerLoad} />
     </Grid>
   </Grid>;
 }

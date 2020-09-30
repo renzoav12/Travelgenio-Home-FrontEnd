@@ -13,7 +13,8 @@ const loadingComponent = () => <img src={loadingImage} alt="" />;
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     cardImage: {
-      margin: 10,
+      margin: 0,
+      borderRadius: 10
     },
     image: {
       "& figure": {
@@ -21,6 +22,7 @@ const useStyles = makeStyles((theme: Theme) =>
         width: "100%",
         overflow: "hidden",
         margin: 0,
+        borderRadius: 8,
         "& img": {
           width: "100%",
           height: "100%",
