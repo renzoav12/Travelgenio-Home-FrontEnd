@@ -39,7 +39,7 @@ void, RootState, null, RootAction> => {
                  headers: {
                      ...OriginHostHeader,
                  },
-             }).post(url);
+             }).get(url);
              dispatch(offerFetchSuccess(response.data));
         }catch(error) {
             dispatch(offerFetchFailed());
