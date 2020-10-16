@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { AccommodationProps } from "../LastDestination";
-import { makeStyles, Theme, createStyles, Grid, Box } from "@material-ui/core";
+import { makeStyles, Theme, createStyles, Box } from "@material-ui/core";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
@@ -77,14 +77,12 @@ const SlideAccommodation: FunctionComponent<Props> = (props) => {
     const group: any = _.chunk(props.accommodations, 4);
 
     const slides:  any = group.map(
-        (accommodation: Array<AccommodationProps>, index: number) => {
-            if (accommodation.length >= 4 && accommodation.length <= 20) {
+        (accommodation: Array<AccommodationProps>, index: number) => {        
                 return (
                     <SlideCard
                         key={index}
                         accommodations={accommodation}/>
-                );
-            }
+                );           
         }
     );
 
