@@ -1,63 +1,26 @@
 import { FunctionComponent } from "react";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import { DestinationProps } from "../LastDestination";
-import { Grid } from "@material-ui/core";
+import { Box } from "@material-ui/core";
+import PaintingSquare, { PromotionEntry } from '../../PaintingSquare/PaintingSquare';
+
 import React from "react";
-import { Carousel } from "react-responsive-carousel";
 import SlideAccommodation from "../Slide/SlideAccommodation";
+import SkeletonCard from "./SkeletonCard";
+import { Status } from "../../../model/Offer";
 
 export interface Props {
   array: Array<DestinationProps>;
   status: string;
+  promotions: PromotionEntry[];
 }
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     container: {
       width: "100%",
-      paddingLeft: 20,
       paddingBottom: 20,
-      paddingTop: 10
-    },
-    skeleton: {
-      width: "100%",
-      "& .MuiSkeleton-text": {
-        transform: "none",
-      },
-    },
-    middle: {
-      width: "100%",
-      marginLeft: 10,
-      marginRight: 10,
-    },
-    carousel: {
-      "& .carousel": {
-        borderRadius: 5,
-      },
-      "& .control-arrow": {
-         marginTop: 170,
-         marginBottom: 170
-      },
-      "& .slide": {
-        background: "none",
-      }
-    },
-    typeOffer: {
-      fontSize: "20pt",
-      fontWeight: "bold",
-      textAlign: "left",
-      maxHeight: 60,
-      overflowY: "hidden"
-
-    },
-    span: {
-      width: "100%",
-      fontWeight: 500,
-      letterSpacing: 1.2,
-      color: '#666666',
-      fontSize: 12,
-      paddingBottom: 5,
-      paddingLeft: 6
+      paddingTop: 40
     },
     nameDestination: {
       width: "100%",
@@ -66,9 +29,10 @@ const useStyles = makeStyles((theme: Theme) =>
       letterSpacing: -0.7,
       fontSize: 32,
       paddingBottom: 20,
-      paddingLeft: 6
+      paddingLeft: 0
     },
-    destinations: {
+    destination: {
+      marginTop: 10,
       paddingBottom: 40
     }
   })
@@ -80,27 +44,35 @@ const Offers: FunctionComponent<Props> = (props) => {
 
   const offers: any = props.array.map(
     (region: DestinationProps, index: number) => {
-    
-      if (region.accommodations.length >= 2) {
-      return (
-        <Grid className={classes.destinations}>
-          <Grid className={classes.span} >
-            CONOCE
-          </Grid>
-          <Grid className={classes.nameDestination}>
-            {region.name}
-          </Grid> 
-          <SlideAccommodation accommodations={region.accommodations}
-                nameDestination={region.name} key={index} />
-        </Grid>
-      );
+        return (
+          <Box className={classes.destination}>
+            <Box className={classes.nameDestination}>
+              {region.name}
+            </Box>
+            <SlideAccommodation accommodations={region.accommodations}
+              nameDestination={region.name} key={index} />
+          </Box>
+        );
+    });
+
+  const chargueOffers = () => {
+      if (props.status === Status.LOADING) {
+        return (<SkeletonCard />)
+      }
+
+      if (props.status !==  Status.SUCCESS) {
+        return (<PaintingSquare loading ={true} promotions = {props.promotions}/>)
+      }
+
+      if ( props.status ===  Status.SUCCESS) {
+        return offers;
+      }
   }
-  });
 
   return (
-    <Grid className={classes.container}>
-      {offers}
-    </Grid>
+    <Box className={classes.container}>
+      {chargueOffers()}
+    </Box>
 
   );
 };

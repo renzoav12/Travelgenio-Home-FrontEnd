@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { Grid, Paper } from "@material-ui/core";
+import { Grid, Paper, Box } from "@material-ui/core";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import { AccommodationProps } from "../LastDestination";
 import Image from "./../Image/Image";
@@ -17,29 +17,28 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     card: {
       padding: 0,
-      height: 440,
-      width: 265,
+      height: 456,
+      width: 281,
       borderRadius: 10,
-
     },
     pricing: {
-        marginTop: 24
+        marginTop: 7,
+        position: 'static',
+        borderTop: '1px solid #C0C6D1'
     },
     gridExample: {
       width: height_proportion
     },
     category: {
-      paddingLeft: 8,
-      paddingTop: 8
+      paddingLeft: 16,
+      paddingTop: 1,
+      height: 30,
+      display: "flex"
     },
     image: {
-      borderRadius: 10
-    },
-    offerType: {
-        borderRadius: '35 0 35 0',
-        MozBorderRadius: '35 0 35 0',
-        WebkitBorderRadius: '35 0 35 0',
-        border: 2,      
+      borderTopLeftRadius: 12,
+      borderTopRightRadius: 12,
+      display: "flex"
     }
   })
 );
@@ -49,31 +48,25 @@ const Card: FunctionComponent<Props> = (props) => {
 
   return (
     <Paper className={classes.card}>
-      <Grid container >
-        <Grid item xs={12} className={classes.image}>
+      <Box >
+        <Box className={classes.image}>
         <Image image={props.accommodation.content.image}></Image>
-        </Grid>
-        <Grid container item xs={12}>
-          <Grid container item xs={12}>
+        </Box>
+        <Box>
            <Content 
               content={props.accommodation.content} 
               pricing={props.accommodation.pricing}  />
-          </Grid>
-          <Grid className={classes.category}  item xs={12} container>
-              <Category stars={parseInt(props.accommodation.content.category.code)} />
-          </Grid>
+        <Box className={classes.category}>
+            <Category stars={parseInt(props.accommodation.content.category.code)} />
+        </Box>
 
-          <Grid container item xs={12} className={classes.pricing}>
-              <Grid className={"caja"}>
-                    
-                    <span className={"caja"}>{props.accommodation.type}</span>
-              </Grid>
+        <Box  className={classes.pricing}>
             <Pricing pricing={props.accommodation.pricing}
                       checkIn={props.accommodation.checkIn} checkOut={props.accommodation.checkOut}
                       accommodationId={props.accommodation.id}/>
-          </Grid>
-        </Grid>
-      </Grid>
+          </Box>
+        </Box>
+      </Box>
     </Paper>
   );
 };

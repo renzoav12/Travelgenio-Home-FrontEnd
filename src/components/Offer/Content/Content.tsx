@@ -12,9 +12,11 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     content: {
       paddingTop: 10,
-      paddingLeft: 10,
+      paddingLeft: 20,
       paddingRight: 10,
-      paddingBottom: 0
+      paddingBottom: 0,
+      width: "100%",
+      position: "static"
     },
     name: {
       fontSize: "10pt",
@@ -29,7 +31,8 @@ const useStyles = makeStyles((theme: Theme) =>
       maxHeight: 60,
       overflowY: "hidden",
       width: "100%",
-      height: "100%"
+      height: "100%",
+      paddingLeft: 20
     },
     nameAccommodation: {
       fontSize: 24,
@@ -42,7 +45,9 @@ const useStyles = makeStyles((theme: Theme) =>
       height: 80
     },
     contentTwo: {
-      paddingTop: 10
+      paddingTop: 4,
+      position: "static",
+      height: 30
     }
   })
 );
@@ -51,12 +56,15 @@ const Content: FunctionComponent<Props> = (props) => {
   const classes = useStyles();
   
   return (
-    <Grid container className={classes.content}>
-      <Grid className={classes.contentTwo} item xs={12} container >
-          <Grid className={classes.nameAccommodation}>{props.content.name}</Grid> 
-          <Grid className={classes.nameCity}>{props.content.address.state}</Grid>
-      </Grid>
-    </Grid>
+    <Box >
+      <Box className={classes.content}>
+          <Box className={classes.nameAccommodation}>{props.content.name}</Box> 
+      </Box>
+      <Box className={classes.contentTwo}>
+          <Box className={classes.nameCity}>{props.content.address.state.length > 2 ?
+           props.content.address.state : " "}</Box>
+      </Box>
+    </Box>
   );
 };
 

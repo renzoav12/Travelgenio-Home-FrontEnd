@@ -33,7 +33,7 @@ export interface HomeProps {
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     search: {
-      marginTop: 20,
+      marginTop: 30,
       width: "100%"
     }
   }),
@@ -55,7 +55,8 @@ const Home: FunctionComponent<HomeProps> = (props, context) => {
         title={translate(context, Keys.common.select_your_destination)}
         locale={props.locale.code === null ? "" : props.locale.code}/> 
       
-      <Offers array={props.offers.regions} status={props.offerStatus} />
+      <Offers array={props.offers.regions} status={props.offerStatus} 
+        promotions={props.promotions} />
       
     </Grid>
   </Grid>;

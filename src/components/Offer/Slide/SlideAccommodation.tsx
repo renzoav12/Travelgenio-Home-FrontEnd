@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { AccommodationProps } from "../LastDestination";
-import { makeStyles, Theme, createStyles, Grid } from "@material-ui/core";
+import { makeStyles, Theme, createStyles, Grid, Box } from "@material-ui/core";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
@@ -13,10 +13,12 @@ export interface Props {
     nameDestination: string;
 }
 
-const height_proportion = '26.6%';
-
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
+        container2: {
+            width:"100%",
+            display: "flex"
+        },
         none: {
             display: "flex",
             marginTop: 10,
@@ -38,11 +40,12 @@ const useStyles = makeStyles((theme: Theme) =>
                 borderRightColor: "rgba(111, 103, 103)"     
             },
             "& .carousel.carousel-slider .control-arrow" :{
-                marginTop: 185,
-                marginBottom: 185,
-                borderRadius: 77,
+                borderRadius: 100,
                 background:"#ffffff",
-                marginRight: 40  
+                width: 45,
+                height: 46,
+                marginTop: "19%",
+                boxShadow: "-1px 3px 3px 0px #948d8d9c",
             },
             "& .carousel .control-arrow, .carousel.carousel-slider .control-arrow" :{
                 opacity: 10
@@ -55,16 +58,14 @@ const useStyles = makeStyles((theme: Theme) =>
             },
             "& .slide": {
                 background: "rgba(0,0,0,0)",
+            },"& .carousel.carousel-slider": {
+                display: 'flex',
+                position: 'flex'
             },
+            width: "100%",
             paddingBottom: 6,
             paddingTop: 6
 
-        },
-        boxCarousel: {
-            width: height_proportion
-        },
-        box1: {
-            height: 420
         }
     })
 );
@@ -91,7 +92,7 @@ const SlideAccommodation: FunctionComponent<Props> = (props) => {
             className={classes.carousel}
             showStatus={false}
             showThumbs={false}
-            showIndicators={false}
+            showIndicators={false} 
           >
             {slides}
           </Carousel>
@@ -99,9 +100,9 @@ const SlideAccommodation: FunctionComponent<Props> = (props) => {
       };
 
     return (
-        <Grid container item xs={4} md={12}>
+        <Box className={classes.container2}>
             {carousel()}
-        </Grid>
+        </Box>
     )
 }
 

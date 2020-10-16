@@ -4,7 +4,6 @@ import Keys from "@hotels/translation-keys";
 import Translate from "@hotels/translation";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import { PricingProps } from "../LastDestination";
-import { useHistory } from "react-router-dom";
 
 export interface Props {
   pricing: PricingProps;
@@ -13,19 +12,23 @@ export interface Props {
   accommodationId: String;
 }
 
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     pricing: {
-      paddingTop: 0,
+      paddingTop: 18,
       paddingBottom: 0,
       paddingLeft: 0,
       paddingRight: 0,
-      marginLeft: 12
+      width: "90%"
     },
     stayPrice: {
       color: theme.palette.primary.main,
       fontSize: "16pt",
       fontWeight: "bold",
+      display: "flex",
+      justifyContent: "flex-end",
+
     },
     nightlyPrice: {
       fontSize: "8pt",
@@ -33,8 +36,13 @@ const useStyles = makeStyles((theme: Theme) =>
       justifyContent: "flex-end",
     },
     detail: {
-      marginTop: 10,
-    },
+      marginTop: 10
+        },
+    button: {
+    display: "flex",
+    justifyContent: "flex-end",
+    float: "right"
+    }
   })
 );
 
@@ -42,11 +50,9 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const Pricing: FunctionComponent<Props> = (props) => {
 
-  const history = useHistory();
-
   const routeChange = () =>{ 
-    let path = `/hotels/detail/Hotel-${props.accommodationId}/${props.checkIn}/${props.checkOut}/${props.pricing.nights}`; 
-    history.push(path);
+    let path = `/hotels/detail/Hotel-${props.accommodationId}/${props.checkIn}/${props.checkOut}/2`; 
+    window.open(path);
   }
 
   const classes = useStyles();
@@ -56,18 +62,17 @@ const Pricing: FunctionComponent<Props> = (props) => {
         {props.pricing.nightlyPrice.amount} {props.pricing.nightlyPrice.currency}
       </Box>
       <Box className={classes.nightlyPrice}>
-        {props.pricing.nightlyPrice.amount}{" "}
-        {props.pricing.nightlyPrice.currency}{" "}
         <Translate tkey={Keys.search.by_night} />
       </Box>
       <Box className={classes.detail}>
-        <Button onClick={routeChange}
+        <span className={classes.button}><Button onClick={routeChange}
           variant="contained"
           color="primary"
           fullWidth      
         >
           <Translate tkey={Keys.search.see_detail} />
         </Button>
+        </span>
       </Box>
     </Box>
   );

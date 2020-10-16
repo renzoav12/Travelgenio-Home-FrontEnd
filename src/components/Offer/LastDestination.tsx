@@ -2,7 +2,6 @@ export interface Offers {
   offers: Array<DestinationProps>;
   loadingStatus: string;
   offerLoad: (url: string) => void;
-
 }
 
 export interface OfferProps {
@@ -52,5 +51,3 @@ export interface CategoryAccommodationProps {
   code: string,
   name: string
 }
-
-export default LastDestination;

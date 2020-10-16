@@ -15,6 +15,7 @@ const useStyles = makeStyles((theme: Theme) =>
     cardImage: {
       margin: 0,
       borderRadius: 10
+
     },
     image: {
       "& figure": {
@@ -22,7 +23,8 @@ const useStyles = makeStyles((theme: Theme) =>
         width: "100%",
         overflow: "hidden",
         margin: 0,
-        borderRadius: 8,
+        borderTopLeftRadius: 8,
+        borderTopRightRadius: 8,
         "& img": {
           width: "100%",
           height: "100%",
