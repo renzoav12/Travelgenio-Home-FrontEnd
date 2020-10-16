@@ -7,7 +7,7 @@ const dev = {
 };
 
 const prod = {
-    OFFERS: "https://" + window.location.hostname + "/hotels/api/",
+    OFFERS: "https://" + window.location.hostname + "/hotels/api/offers",
     AUTOCOMPLETE: "https://" + window.location.hostname + "/hotels/api/autocomplete",
     TRANSLATION_API: "https://" + window.location.hostname + "/hotels/api/",
     COBRAND: "https://" + window.location.hostname + "/hotels/api/translations/config",

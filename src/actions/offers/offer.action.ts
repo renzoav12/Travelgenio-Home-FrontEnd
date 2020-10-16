@@ -46,5 +46,3 @@ void, RootState, null, RootAction> => {
         } 
      };
 };
-
-

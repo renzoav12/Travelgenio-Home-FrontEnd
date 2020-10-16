@@ -4,7 +4,7 @@ import { makeStyles, Theme, createStyles, Grid, Box } from "@material-ui/core";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import SlideCard from "./Slide";
+import SlideCard from "./SlideRegion";
 import _ from "lodash";
 
 
@@ -78,11 +78,13 @@ const SlideAccommodation: FunctionComponent<Props> = (props) => {
 
     const slides:  any = group.map(
         (accommodation: Array<AccommodationProps>, index: number) => {
-            return (
-                <SlideCard
-                    key={index}
-                    accommodations={accommodation}/>
-            );
+            if (accommodation.length >= 4 && accommodation.length <= 20) {
+                return (
+                    <SlideCard
+                        key={index}
+                        accommodations={accommodation}/>
+                );
+            }
         }
     );
 
