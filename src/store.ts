@@ -7,6 +7,8 @@ import { history } from './history';
 import { i18nState } from 'redux-i18n';
 import { localeReducer, LocaleState } from './reducers/localeReducer';
 import { cobrandReducer } from '@hotels/header-footer';
+import { Offer } from './model/Offer'
+import { offerReducer} from './reducers/offerReducer';
 
 export interface RootState {
     readonly searchSuggestion: SearchSuggestion;
@@ -14,6 +16,7 @@ export interface RootState {
     readonly router: any;
     readonly i18nState: any;
     readonly cobrand: any;
+    readonly offer: Offer;
 }
 
 const rootReducer = combineReducers<RootState>({
@@ -21,7 +24,8 @@ const rootReducer = combineReducers<RootState>({
     locale: localeReducer,
     router: connectRouter(history),
     i18nState: i18nState,
-    cobrand: cobrandReducer
+    cobrand: cobrandReducer,
+    offer: offerReducer
 });
 
 export const store = createStore(
