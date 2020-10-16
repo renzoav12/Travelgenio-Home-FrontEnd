@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { AccommodationProps } from "../LastDestination";
-import { Box, makeStyles, Theme, createStyles, Grid } from "@material-ui/core";
+import { Box, makeStyles, Theme, createStyles } from "@material-ui/core";
 import Card from "../Card/Card";
 
 
