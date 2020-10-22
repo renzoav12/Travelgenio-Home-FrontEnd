@@ -1,6 +1,8 @@
 import React, { FunctionComponent } from "react";
 import { AccommodationProps } from "../LastDestination";
-import { Box, makeStyles, Theme, createStyles } from "@material-ui/core";
+import { Box, makeStyles, createStyles } from "@material-ui/core";
+import { Theme } from "@material-ui/core/styles";
+
 import Card from "../Card/Card";
 
 
@@ -16,9 +18,14 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         cards: {
             display: "flex",
-                marginBottom: 15,
-                marginRight: 18,
+            marginBottom: 15,
+            marginRight: 18,
+            [theme.breakpoints.down("xs")]:{
+                marginLeft:30
+            },
+            [theme.breakpoints.up("lg")]:{
                 marginLeft: 5
+            }
         }
     })
 );
