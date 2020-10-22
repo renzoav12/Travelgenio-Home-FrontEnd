@@ -17,6 +17,10 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     card: {
       padding: 0,
+      [theme.breakpoints.down("xs")]:{
+        height: 484,
+        width: 318,
+      },
       height: 456,
       width: 281,
       borderRadius: 10,

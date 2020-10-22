@@ -21,11 +21,16 @@ const useStyles = makeStyles((theme: Theme) =>
             marginBottom: 15,
             marginRight: 18,
             [theme.breakpoints.down("xs")]:{
-                marginLeft:30
+                marginLeft:14
             },
             [theme.breakpoints.up("lg")]:{
                 marginLeft: 5
-            }
+            },
+            [theme.breakpoints.between("sm","md")]:{
+                marginLeft: 24,
+                marginRight: 20
+            },
+            
         }
     })
 );

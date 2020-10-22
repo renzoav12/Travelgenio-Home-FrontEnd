@@ -18,6 +18,10 @@ const useStyles = makeStyles((theme: Theme) =>
         transform: "none",
       },
       padding: 0,
+      [theme.breakpoints.down("xs")]:{
+        height: 484,
+        width: 318,
+      },
       height: 456,
       width: 281,
       borderRadius: 10
@@ -26,6 +30,13 @@ const useStyles = makeStyles((theme: Theme) =>
       display: "flex",
           marginBottom: 15,
           marginRight: 18,
+          [theme.breakpoints.down("xs")]:{
+            marginLeft:14
+          },
+          [theme.breakpoints.between("sm","md")]:{
+            marginLeft: 24,
+            marginRight: 20
+        },
           marginLeft: 5
     },
     loadingImage:{

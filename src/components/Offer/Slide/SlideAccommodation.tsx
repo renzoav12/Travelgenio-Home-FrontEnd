@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme: Theme) =>
                 width: 45,
                 height: 46,
                 [theme.breakpoints.down("xs")]:{
-                    marginTop:"50%"
+                    marginTop:"70%"
                 },
                 [theme.breakpoints.up("lg")]:{
                     marginTop:"19%"

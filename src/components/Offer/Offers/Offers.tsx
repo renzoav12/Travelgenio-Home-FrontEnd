@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme: Theme) =>
       marginTop: 10,
       paddingBottom: 40,
       [theme.breakpoints.between("sm","md")]:{
-        paddingLeft:"10%"
+        paddingLeft:"2%"
     },
     }
   })
