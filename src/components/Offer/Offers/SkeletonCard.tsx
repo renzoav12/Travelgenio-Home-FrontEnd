@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
+import { makeStyles, createStyles, Theme, useTheme } from "@material-ui/core/styles";
 import { Grid, Paper, Box } from "@material-ui/core";
 import React from "react";
 import loadingHotelImage from "./../../../assets/images/loadingHotel.jpg";
@@ -63,11 +63,10 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const SkeletonCard: FunctionComponent<any> = () => {
-
+const SkeletonCard: FunctionComponent<any> = (props) => {
   const classes = useStyles();
 
-    const loadingImage = <Img src={loadingHotelImage} className={classes.loadingImage}/>;
+  const loadingImage = <Img src={loadingHotelImage} className={classes.loadingImage}/>;
 
       return (
         <Grid container className={classes.container}>

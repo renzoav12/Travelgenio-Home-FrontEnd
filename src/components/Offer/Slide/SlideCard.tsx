@@ -12,6 +12,9 @@ export interface Props {
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
+        none: {
+            display: "flex",
+          },
         slice: {
             display: "flex",
             marginTop: 10,
@@ -20,18 +23,57 @@ const useStyles = makeStyles((theme: Theme) =>
             display: "flex",
             marginBottom: 15,
             marginRight: 18,
-            [theme.breakpoints.down("xs")]:{
-                marginLeft:14
+        },
+        first: {
+            display: "flex",
+            [theme.breakpoints.down("md")]: {
+              minWidth: "33%"
             },
-            [theme.breakpoints.up("lg")]:{
-                marginLeft: 5
+            [theme.breakpoints.down("sm")]: {
+                minWidth: "50%"
             },
-            [theme.breakpoints.between("sm","md")]:{
-                marginLeft: 24,
-                marginRight: 20
+            [theme.breakpoints.up("lg")]: {
+                minWidth: "25%"
+            }   
+          },
+        second: {
+            display: "flex",
+            [theme.breakpoints.down("md")]: {
+              marginLeft: 5,
+              minWidth: "33%"
             },
-            
-        }
+            [theme.breakpoints.down("sm")]: {
+                minWidth: "50%"
+            },
+            [theme.breakpoints.up("lg")]: {
+                minWidth: "25%"
+            }   
+          },
+          third: {
+            display: "flex",
+            [theme.breakpoints.down("md")]: {
+              marginLeft: 5,
+              minWidth: "33%"
+            },
+            [theme.breakpoints.down("sm")]: {
+                minWidth: "50%"
+            },
+            [theme.breakpoints.up("lg")]: {
+                minWidth: "25%"
+            }         
+          },
+          four: {
+            display: "flex",
+            [theme.breakpoints.down("xs")]: {
+              marginTop: 5
+            },
+            [theme.breakpoints.down("md")]: {
+              minWidth: "33%"
+            },
+            [theme.breakpoints.down("sm")]: {
+                minWidth: "50%"
+            }
+          },
     })
 );
 
@@ -39,10 +81,25 @@ const SlideCard: FunctionComponent<Props> = (props) => {
 
     const classes = useStyles();
 
+    const getClassName = (index: number): string => {
+        if (index === 0 && props.accommodations.length > 1) {
+          return classes.first;
+        } else if (
+          index + 1 === props.accommodations.length &&
+          props.accommodations.length > 1
+        ) {
+          return classes.third;
+        } else if (props.accommodations.length > 2) {
+          return classes.second;
+        } else {
+          return classes.none;
+        }
+      };
+
     const cards: any = props.accommodations.map(
         (accommodation: AccommodationProps, index: number) => {
             return (
-                <Box className={classes.cards}>
+                <Box className={getClassName(index)}>
                     <Card
                         accommodation={accommodation}
                         key={Number(accommodation.id)} />

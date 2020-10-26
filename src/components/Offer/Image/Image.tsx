@@ -14,8 +14,8 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     cardImage: {
       margin: 0,
-      borderRadius: 10
-
+      borderRadius: 10,
+      width: "100%"
     },
     image: {
       "& figure": {

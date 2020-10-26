@@ -19,19 +19,27 @@ const useStyles = makeStyles((theme: Theme) =>
       padding: 0,
       [theme.breakpoints.down("xs")]:{
         height: 484,
-        width: 318,
+        width: "100%",
       },
-      height: 456,
-      width: 281,
+      [theme.breakpoints.down("sm")]:{
+        height: 484,
+        width: "100%",
+      },
+      [theme.breakpoints.down("md")]:{
+        height: 484,
+        width: "100%",
+      },
+      [theme.breakpoints.up("lg")]:{
+        height: 456,
+        width: "100%",
+        minWidth: "25%"
+      },
       borderRadius: 10,
     },
     pricing: {
         marginTop: 7,
         position: 'static',
         borderTop: '1px solid #C0C6D1'
-    },
-    gridExample: {
-      width: height_proportion
     },
     category: {
       paddingLeft: 16,

@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { AccommodationProps } from "../LastDestination";
-import { makeStyles, createStyles, Box } from "@material-ui/core";
+import { makeStyles, createStyles } from "@material-ui/core";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
@@ -17,9 +17,8 @@ export interface Props {
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
-        container2: {
+        container: {
             width: "100%",
-            display: "flex"
         },
         none: {
             display: "flex",
@@ -47,14 +46,18 @@ const useStyles = makeStyles((theme: Theme) =>
                 width: 45,
                 height: 46,
                 [theme.breakpoints.down("xs")]:{
-                    marginTop:"70%"
+                    marginTop:"50%"
                 },
                 [theme.breakpoints.up("lg")]:{
                     marginTop:"19%"
                 },
-                [theme.breakpoints.between("sm","md")]:{
-                    marginTop:"35%",
-                    marginRight:"9%"
+                [theme.breakpoints.down("sm")]:{
+                    marginTop:"20%",
+                    marginRight:"0%"
+                },
+                [theme.breakpoints.up("md")]:{
+                    marginTop:"15%",
+                    marginRight:"0%"
                 },
                 boxShadow: "-1px 3px 3px 0px #948d8d9c",
             },
@@ -84,19 +87,22 @@ const useStyles = makeStyles((theme: Theme) =>
 const SlideAccommodation: FunctionComponent<Props> = (props) => {
 
     const theme = useTheme();
-    const smallCarousel = useMediaQuery(theme.breakpoints.down("xs")); //mobile -> true
-    const mediumCarousel = useMediaQuery(theme.breakpoints.between("sm","md")); //mobile -> false
-    const largeCarousel = useMediaQuery(theme.breakpoints.up("lg")); // mobile -> false
-
+    const xs = useMediaQuery(theme.breakpoints.down("xs")); //mobile -> true
+    const sm = useMediaQuery(theme.breakpoints.down("sm")); //mobile -> false
+    const md = useMediaQuery(theme.breakpoints.down("md")); //mobile -> false
+    const lg = useMediaQuery(theme.breakpoints.up("lg")); // mobile -> false
     
     const velueResponsive = () => {           
-        if (smallCarousel){
+        if (xs){
             return 1;
         }
-        if (mediumCarousel){
+        if (sm){
             return 2;
         }
-        if (largeCarousel) {
+        if (md) {
+            return 3;
+        }
+        if (lg) {
             return 4;
         }
     }
@@ -129,9 +135,8 @@ const SlideAccommodation: FunctionComponent<Props> = (props) => {
     };
 
     return (
-        <Box className={classes.container2}>
-            {carousel()}
-        </Box>
+        
+            carousel()
     )
 }
 
