@@ -90,9 +90,6 @@ const SlideAccommodation: FunctionComponent<Props> = (props) => {
     const md = useMediaQuery(theme.breakpoints.down("md")); //mobile -> false
     const lg = useMediaQuery(theme.breakpoints.up("lg")); // mobile -> false
     
-
-    console.log(useMediaQuery(theme.breakpoints.between("sm","md"))); //mobile -> false
-    console.log(lg);
     const velueResponsive = () => { 
         if (lg) {
             return 4;
