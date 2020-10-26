@@ -98,15 +98,10 @@ const SlideAccommodation: FunctionComponent<Props> = (props) => {
             return 1;
         }
         if (sm){
-            console.log("entra aca");
             return 2;
         }
         if (md) {
             return 3;
-        }
-        if (lg) {
-            console.log("return 4");
-            return 4;
         }
     }
 
