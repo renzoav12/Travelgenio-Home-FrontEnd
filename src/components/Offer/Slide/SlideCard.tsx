@@ -14,6 +14,16 @@ const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         none: {
             display: "flex",
+            [theme.breakpoints.down("md")]: {
+              width: "33%"
+            },
+            [theme.breakpoints.down("sm")]: {
+              width: "50%"
+            },
+            [theme.breakpoints.down("xs")]: {
+              width: "100%"
+            },
+            width: "25%",
           },
         slice: {
             display: "flex",
@@ -33,7 +43,8 @@ const useStyles = makeStyles((theme: Theme) =>
                 minWidth: "50%"
             },
             [theme.breakpoints.up("lg")]: {
-                minWidth: "25%"
+                minWidth: "25%",
+                paddingRight: 20
             }   
           },
         second: {
@@ -46,7 +57,8 @@ const useStyles = makeStyles((theme: Theme) =>
                 minWidth: "50%"
             },
             [theme.breakpoints.up("lg")]: {
-                minWidth: "25%"
+                minWidth: "25%",
+                paddingRight: 20
             }   
           },
           third: {
@@ -55,11 +67,16 @@ const useStyles = makeStyles((theme: Theme) =>
               marginLeft: 5,
               minWidth: "33%"
             },
+            [theme.breakpoints.between("sm","md")]:{
+              marginLeft: 5,
+          },
             [theme.breakpoints.down("sm")]: {
                 minWidth: "50%"
             },
             [theme.breakpoints.up("lg")]: {
-                minWidth: "25%"
+                width: "25%",
+                minWidth: "25%",
+                paddingRight: 20
             }         
           },
           four: {
@@ -68,7 +85,7 @@ const useStyles = makeStyles((theme: Theme) =>
               marginTop: 5
             },
             [theme.breakpoints.down("md")]: {
-              minWidth: "33%"
+                minWidth: "33%"
             },
             [theme.breakpoints.down("sm")]: {
                 minWidth: "50%"

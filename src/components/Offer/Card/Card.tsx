@@ -12,7 +12,6 @@ import './../Style/offerType.scss';
 export interface Props {
   accommodation: AccommodationProps;
 }
-const height_proportion = '33.3%';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     card: {

@@ -46,18 +46,16 @@ const useStyles = makeStyles((theme: Theme) =>
                 width: 45,
                 height: 46,
                 [theme.breakpoints.down("xs")]:{
-                    marginTop:"50%"
+                    marginTop:"70%"
                 },
                 [theme.breakpoints.up("lg")]:{
                     marginTop:"19%"
                 },
-                [theme.breakpoints.down("sm")]:{
-                    marginTop:"20%",
-                    marginRight:"0%"
+                [theme.breakpoints.between("sm","md")]:{
+                    marginTop:"30%",
                 },
-                [theme.breakpoints.up("md")]:{
-                    marginTop:"15%",
-                    marginRight:"0%"
+                [theme.breakpoints.up("lg")]:{
+                    marginTop:"19%"
                 },
                 boxShadow: "-1px 3px 3px 0px #948d8d9c",
             },
@@ -92,17 +90,25 @@ const SlideAccommodation: FunctionComponent<Props> = (props) => {
     const md = useMediaQuery(theme.breakpoints.down("md")); //mobile -> false
     const lg = useMediaQuery(theme.breakpoints.up("lg")); // mobile -> false
     
-    const velueResponsive = () => {           
+
+    console.log(useMediaQuery(theme.breakpoints.between("sm","md"))); //mobile -> false
+    console.log(lg);
+    const velueResponsive = () => { 
+        if (lg) {
+            return 4;
+        }          
         if (xs){
             return 1;
         }
         if (sm){
+            console.log("entra aca");
             return 2;
         }
         if (md) {
             return 3;
         }
         if (lg) {
+            console.log("return 4");
             return 4;
         }
     }
