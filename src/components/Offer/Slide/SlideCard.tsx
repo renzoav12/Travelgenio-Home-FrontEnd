@@ -44,7 +44,8 @@ const useStyles = makeStyles((theme: Theme) =>
             },
             [theme.breakpoints.up("lg")]: {
                 minWidth: "25%",
-                paddingRight: 20
+                paddingRight: 20,
+                width: "25%"
             }   
           },
         second: {
@@ -58,7 +59,8 @@ const useStyles = makeStyles((theme: Theme) =>
             },
             [theme.breakpoints.up("lg")]: {
                 minWidth: "25%",
-                paddingRight: 20
+                paddingRight: 20,
+                width: "25%"
             }   
           },
           third: {
@@ -75,8 +77,7 @@ const useStyles = makeStyles((theme: Theme) =>
             },
             [theme.breakpoints.up("lg")]: {
                 width: "25%",
-                minWidth: "25%",
-                paddingRight: 20
+                minWidth: "25%"
             }         
           },
           four: {

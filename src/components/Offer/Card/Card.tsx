@@ -31,7 +31,6 @@ const useStyles = makeStyles((theme: Theme) =>
       [theme.breakpoints.up("lg")]:{
         height: 456,
         width: "100%",
-        minWidth: "25%"
       },
       borderRadius: 10,
     },
