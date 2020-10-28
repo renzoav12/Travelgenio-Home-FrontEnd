@@ -77,20 +77,9 @@ const useStyles = makeStyles((theme: Theme) =>
             },
             [theme.breakpoints.up("lg")]: {
                 width: "25%",
-                minWidth: "25%"
+                minWidth: "25%",
+                paddingRight: 20,
             }         
-          },
-          four: {
-            display: "flex",
-            [theme.breakpoints.down("xs")]: {
-              marginTop: 5
-            },
-            [theme.breakpoints.down("md")]: {
-                minWidth: "33%"
-            },
-            [theme.breakpoints.down("sm")]: {
-                minWidth: "50%"
-            }
           },
     })
 );
