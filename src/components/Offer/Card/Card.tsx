@@ -16,16 +16,12 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     card: {
       padding: 0,
-      [theme.breakpoints.down("xs")]:{
-        height: 484,
-        width: "100%",
-      },
       [theme.breakpoints.down("sm")]:{
-        height: 484,
+        height: 450,
         width: "100%",
       },
-      [theme.breakpoints.down("md")]:{
-        height: 484,
+      [theme.breakpoints.up("md")]:{
+        height: 450,
         width: "100%",
       },
       [theme.breakpoints.up("lg")]:{
