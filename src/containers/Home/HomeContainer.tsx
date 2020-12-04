@@ -7,13 +7,15 @@ import { fetchSuggestionSearch } from "../../actions/suggestion/suggestion.actio
 import { Container } from "@material-ui/core";
 import { loadI18n } from "../../actions/i18n/i18n.action";
 import {thunkOfferLoad} from '../../actions/offers/offer.action'
-import { initCobrand } from "@hotels/header-footer";
+import { initCobrand, isLocalHero } from "@hotels/header-footer";
 import config from "../../config";
 
 const HomeContainer: FunctionComponent<HomeProps> = (props) => {
   useEffect(() => {
     props.loadI18n();
-    props.initCobrand && props.initCobrand(config.COBRAND, config.EMAIL_SUBSCRIPTION);
+    if(!isLocalHero()) {
+      props.initCobrand && props.initCobrand(config.COBRAND, config.EMAIL_SUBSCRIPTION);
+    }
     props.offerLoad(config.OFFERS);
   }, []);
 
