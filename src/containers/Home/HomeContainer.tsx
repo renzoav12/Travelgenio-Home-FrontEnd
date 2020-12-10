@@ -26,6 +26,7 @@ const HomeContainer: FunctionComponent<HomeProps> = (props) => {
           location: {
             code: "",
             type: "",
+            name: ""
           },
           occupancy: {
             rooms: [
